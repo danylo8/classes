@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fall 2026 — Syllabus Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="brand-eyebrow">Binghamton University · Fall 2026</span>
+      <h1>Syllabus Hub</h1>
+    </div>
+    <div class="topbar-actions">
+      <button id="btn-export" class="btn btn-primary">Export to Apple Calendar (.ics)</button>
+    </div>
+  </div>
+</header>
+
+<section class="countdown-strip" id="countdown-strip" aria-live="polite">
+  <!-- filled by JS -->
+</section>
+
+<nav class="course-tabs" id="course-filter">
+  <!-- filled by JS: one binder-tab per course + "All" -->
+</nav>
+
+<nav class="view-tabs">
+  <button class="view-tab active" data-view="calendar">Calendar</button>
+  <button class="view-tab" data-view="list">List</button>
+  <button class="view-tab" data-view="planner">Planner</button>
+  <button class="view-tab" data-view="edit">Edit</button>
+</nav>
+
+<main>
+
+  <!-- CALENDAR VIEW -->
+  <section id="view-calendar" class="view">
+    <div class="month-nav">
+      <button id="month-prev" class="btn btn-ghost" aria-label="Previous month">←</button>
+      <h2 id="month-label"></h2>
+      <button id="month-next" class="btn btn-ghost" aria-label="Next month">→</button>
+    </div>
+    <div class="calendar-grid" id="calendar-grid"></div>
+    <div class="day-detail" id="day-detail">
+      <p class="muted">Click a date to see what's due.</p>
+    </div>
+  </section>
+
+  <!-- LIST VIEW -->
+  <section id="view-list" class="view" hidden>
+    <table class="list-table" id="list-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Course</th>
+          <th>Event</th>
+          <th>Type</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <!-- PLANNER VIEW -->
+  <section id="view-planner" class="view" hidden>
+    <div class="planner-header">
+      <p class="muted">Every assignment and exam from your syllabi, in order. Check things off as you finish them — this is saved on this device only.</p>
+    </div>
+    <ul class="planner-list" id="planner-list"></ul>
+
+    <div class="planner-add">
+      <h3>Add your own task</h3>
+      <form id="custom-task-form">
+        <input type="text" id="custom-task-title" placeholder="e.g. Draft outline for Paper 2" required>
+        <input type="date" id="custom-task-date" required>
+        <button type="submit" class="btn btn-primary">Add</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- EDIT VIEW -->
+  <section id="view-edit" class="view" hidden>
+    <div class="edit-header">
+      <p class="muted">Change anything here — dates, titles, details, even course names and colors. Everything saves automatically in this browser, so no editing code files. Use <strong>reset</strong> to undo a single change, or the button below to start over completely.</p>
+      <button id="btn-reset-edits" class="btn btn-ghost btn-small">Reset all my edits</button>
+    </div>
+
+    <h3>Courses</h3>
+    <div id="edit-courses" class="edit-courses"></div>
+
+    <h3>Events</h3>
+    <div class="edit-events-head">
+      <span></span><span>Course</span><span>Date</span><span>Type</span><span>Title</span><span>Detail</span><span></span>
+    </div>
+    <div id="edit-events" class="edit-events"></div>
+
+    <div class="planner-add">
+      <h3>Add a new event</h3>
+      <form id="add-event-form">
+        <select id="new-event-course" required></select>
+        <input type="date" id="new-event-date" required>
+        <select id="new-event-type">
+          <option value="assignment">Assignment</option>
+          <option value="exam">Exam</option>
+          <option value="note">Note</option>
+        </select>
+        <input type="text" id="new-event-title" placeholder="Title" required>
+        <input type="text" id="new-event-detail" placeholder="Detail (optional)">
+        <button type="submit" class="btn btn-primary">Add event</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Built from your four Fall 2026 syllabi. Dates marked "TBA" are placeholders — head to the <strong>Edit</strong> tab to fill in the real date once it's announced. Always double-check against Brightspace.</p>
+</footer>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
