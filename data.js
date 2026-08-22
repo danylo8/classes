@@ -10,6 +10,16 @@ const COURSES = [
     meets: "Tue/Thu 9:45–11:15am",
     room: "Classroom Wing 109",
     color: "#c17d2c",
+    textbooks: [
+      "Thomas More, Utopia (1516), Penguin Classics, trans. Turner — ISBN 9780140449105",
+      "Mary Shelley, Frankenstein (1818), Oxford World's Classics, ed. Groom — ISBN 9780198840824",
+      "William Morris, News from Nowhere (1890), Penguin Classics, ed. Wilmer — ISBN 9780140433302",
+      "H. G. Wells, The Time Machine (1895), Signet Classics — ISBN 978-0451528551",
+      "Aldous Huxley, Brave New World (1932), Harper Perennial — ISBN 9780060850524",
+      "Philip K. Dick, Do Androids Dream of Electric Sheep? (1968), Del Rey — ISBN 978-0345404473",
+      "Octavia E. Butler, Bloodchild and Other Stories (1984), Seven Stories Press — ISBN 978-1583226988",
+      "(All other readings are posted as PDFs on Brightspace.)",
+    ],
   },
   {
     id: "aaas",
@@ -19,6 +29,14 @@ const COURSES = [
     meets: "Wed/Fri 9:45–11:15am",
     room: "Rockefeller Center 259",
     color: "#2c8c86",
+    textbooks: [
+      "No print textbook — critical readings are posted on Brightspace, including:",
+      "Data Empire by Roopika Risam (selections)",
+      "Asian America.Net: Ethnicity, Nationalism, and Cyberspace, ed. Rachel C. Lee & Sau-ling C. Wong (Introduction)",
+      "Digitizing Race: Visual Cultures of the Internet by Lisa Nakamura (selections)",
+      "\"Political Inequality in the Digital World\" by N. K. Chan",
+      "\"Asian America Gone Viral\" by Lori Kido Lopez, in The Routledge Companion to Asian American Media",
+    ],
   },
   {
     id: "plsc",
@@ -28,6 +46,9 @@ const COURSES = [
     meets: "Tue/Thu 11:45am–1:15pm",
     room: "Lecture Hall 1",
     color: "#8c3b3b",
+    textbooks: [
+      "Clark, William Roberts, Matt Golder, and Sona Nadenichek Golder. 2024. Principles of Comparative Politics, 4th Edition. Washington, D.C.: CQ Press.",
+    ],
   },
   {
     id: "psyc",
@@ -37,6 +58,11 @@ const COURSES = [
     meets: "Mon/Wed/Fri 2:45–3:45pm",
     room: "LH 014",
     color: "#5b4b8a",
+    textbooks: [
+      "Craighead, W. E. (2017). Psychopathology: History, Diagnosis, and Empirical Foundations (3rd Ed.). John Wiley & Sons.",
+      "Oltmanns, T. F., Martin, M. T., & Neale, J. M. (2011). Case Studies in Abnormal Psychology (11th Ed.). John Wiley & Sons.",
+      "(Individual readings in the schedule below, e.g. \"Craighead 3\" or \"Oltmanns 7,\" refer to chapters/case studies in these two books.)",
+    ],
   },
 ];
 

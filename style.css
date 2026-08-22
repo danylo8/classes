@@ -147,6 +147,60 @@ a { color: var(--accent); }
   margin-right: 6px;
 }
 
+/* ---------- Course info panel (instructor/meeting/textbooks) ---------- */
+.course-info {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.course-info summary {
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  padding: 8px 0;
+  list-style: none;
+}
+.course-info summary::-webkit-details-marker { display: none; }
+.course-info summary::before { content: "▸ "; }
+.course-info[open] summary::before { content: "▾ "; }
+#course-info-body {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+  padding-bottom: 16px;
+}
+.course-info-card {
+  border: 1.5px solid var(--line);
+  border-left-width: 4px;
+  border-radius: 4px;
+  padding: 12px 14px;
+  background: var(--paper-dim);
+}
+.course-info-head { font-size: 0.9rem; margin-bottom: 4px; }
+.course-info-head .dot { display: none; } /* color already shown via left border + text color */
+.course-info-meta {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  margin-bottom: 8px;
+}
+.course-info-books-label {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  margin-bottom: 4px;
+}
+.course-info-books {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+.course-info-books li { margin-bottom: 3px; }
+
 /* ---------- View tabs ---------- */
 .view-tabs {
   max-width: 1100px;
@@ -401,6 +455,12 @@ main {
   accent-color: var(--futures);
 }
 .planner-item .p-title { font-weight: 600; }
+.planner-item .p-detail {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  margin-top: 2px;
+  line-height: 1.35;
+}
 .planner-item .p-meta {
   font-family: var(--font-mono);
   font-size: 0.72rem;

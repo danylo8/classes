@@ -148,6 +148,31 @@ function renderCourseTabs() {
 }
 
 // ---------------------------------------------------------------
+// Course info panel — full instructor/meeting/textbook details.
+// Separate from the per-session reading citations in the schedule,
+// since "Craighead 3" only makes sense once you know what book that is.
+// ---------------------------------------------------------------
+function renderCourseInfo() {
+  const wrap = document.getElementById("course-info-body");
+  const visible = getEffectiveCourses().filter(c => state.activeCourses.has(c.id));
+  wrap.innerHTML = visible.map(c => `
+    <div class="course-info-card" style="border-left-color:${c.color}">
+      <div class="course-info-head">
+        <span class="dot" style="background:${c.color}"></span>
+        <strong style="color:${c.color}">${c.code}</strong> — ${c.name}
+      </div>
+      <div class="course-info-meta">${c.instructor} · ${c.meets} · ${c.room}</div>
+      ${c.textbooks && c.textbooks.length ? `
+        <div class="course-info-books-label">Required textbooks / materials</div>
+        <ul class="course-info-books">
+          ${c.textbooks.map(t => `<li>${t}</li>`).join("")}
+        </ul>
+      ` : ""}
+    </div>
+  `).join("");
+}
+
+// ---------------------------------------------------------------
 // Countdown strip
 // ---------------------------------------------------------------
 function renderCountdown() {
@@ -309,6 +334,7 @@ function renderPlanner() {
     .map(e => ({
       key: eventKey(e),
       title: e.title,
+      detail: e.detail,
       date: e.date,
       courseId: e.course,
       custom: false,
@@ -335,6 +361,7 @@ function renderPlanner() {
       <input type="checkbox" ${isDone ? "checked" : ""} data-key="${item.key}">
       <div>
         <div class="p-title">${course ? `<span class="p-course-dot" style="background:${course.color}"></span>` : ""}${item.title}</div>
+        ${item.detail ? `<div class="p-detail">${item.detail}</div>` : ""}
         <div class="p-meta ${overdue ? "overdue" : ""}">${course ? course.code + " · " : "Your task · "}${formatDate(item.date)}${overdue ? " · overdue" : ""}</div>
       </div>
     `;
@@ -627,6 +654,7 @@ document.getElementById("btn-reset-edits").addEventListener("click", () => {
 // ---------------------------------------------------------------
 function renderAll() {
   renderCourseTabs();
+  renderCourseInfo();
   renderCountdown();
   renderActiveView();
 }
